@@ -5,7 +5,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the URL-Shortener API.");
 });
 
-app.get("/shortener/:prevURL", (req, res) => {
+app.get("/shortener", (req, res) => {
   const { prevURL } = req.query;
 
   shortener.short(prevURL, (error, url) => {
