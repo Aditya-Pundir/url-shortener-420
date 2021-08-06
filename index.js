@@ -1,6 +1,6 @@
 const app = require("express")();
 const shortener = require("node-url-shortener");
-
+const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
   res.send("Welcome to the URL-Shortener API.");
 });
@@ -14,3 +14,4 @@ app.get("/shortener", (req, res) => {
     }
   });
 });
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
