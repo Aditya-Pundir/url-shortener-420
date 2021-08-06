@@ -5,8 +5,10 @@ app.get("/", (req, res) => {
   res.send("Welcome to the URL-Shortener API.");
 });
 
-app.get("/shortener", (req, res) => {
-  shortener.short("https://haridwar-smart-city.netlify.app", (error, url) => {
+app.get("/shortener/:url", (req, res) => {
+  const { prevURL } = req.query;
+
+  shortener.short(prevURL, (error, url) => {
     try {
       res.send(url);
     } catch (error) {
